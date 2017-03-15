@@ -1,0 +1,56 @@
+<div class="panel panel-danger">
+  <div class="panel-heading"><i class="fa fa-braille" aria-hidden="true"></i> {{ pageTitle }}</div>
+
+  <div class="panel-body" id="panel_body">
+    <div class="row" >
+      <div class="col-md-2">Search By: </div>
+      <div class="col-md-8" id="search-div">
+        <input type="text" [(ngModel)] = 'searchCriteria'>
+      </div>
+    </div><!--search-area-->
+
+    <div class='row'>
+            <div class='col-md-8'>
+                <h4>{{ searchCriteria }}</h4>
+            </div>
+    </div>
+  </div><!--panel-body-->
+
+  <div class='table-responsive'>
+          <table class='table' *ngIf = 'events && events.length'>
+              <thead>
+                  <tr>
+                      <th>
+                          <button class='btn btn-primary' (click) = 'toggleImage()'>{{ showImage ? 'Hide': 'Show' }} images</button>
+                      </th>
+                      <th>Event</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Location</th>
+                      <th>Capacity</th>
+                      <th>Fee</th>
+                      <th>Rating</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor = 'let event of events'>
+                        <td>
+                            <img *ngIf='showImage'
+                                [src]='event.imageUrl'
+                                [title]='event.name'
+                                [style.width.px]='imageWidth'
+                                [style.margin.px]='imageMargin'>
+                        </td>
+                        <td>{{event.name}}</td>
+                        <td>{{event.date}}</td>
+                        <td>{{event.time}}</td>
+                         <td>{{event.location.city}}</td>
+                         <td>{{event.capacity}}</td>
+                        <td>{{event.fee | currency:'USD':true:'1.2-2' }}</td>
+                        <td>{{event.rating}}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+</div><!--main-panel-->

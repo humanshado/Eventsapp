@@ -1,0 +1,23 @@
+thead {
+    color: #337AB7;
+}
+tbody {
+    color: #404040;
+}
+
+#panel_body{
+    background-color: #823329;
+    color: #ccc;
+}
+
+#panel_body input{
+    width: 80%;
+    background-color: #823329;
+    text-align: center;
+    font-size: x-large;
+}
+
+#search-div{
+    padding: 1px;
+}
+
